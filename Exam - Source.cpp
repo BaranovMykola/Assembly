@@ -16,7 +16,10 @@ void main()
 	double _2 = 2;
 	double _1 = 1;
 	double w;
-
+	cout << "b >> c >> d: ";
+	double iTemp;
+	cin >> iTemp >> b >> c >> d;
+	i = iTemp;
 
 	/*__asm
 	{
@@ -56,16 +59,28 @@ void main()
 		fadd _1
 		fdivp st(1), st(0)
 
+
+		fld i
+		fadd _1
+		fstp i
+
+		mov eax, q
+		sub eax, ecx
+		fstp res[eax*8]
 		fstp w
 
-		/*fld i
-		fadd _1
-		fstp i*/
-		//loop start
+		loop start
 	}
 
-	
-	cout << w << endl;
-	cout << (2*c+tan(ai-b)) / (c / ai + d + 1) << endl;
+	for (int j = 0;j < q;++j)
+	{
+		cout << res[j] << " ";
+	}
+	cout << endl;
+	for (int j = 0;j < q;++j)
+	{
+		ai = (3 * b + c / 3)*(iTemp++);
+		cout << (2 * c + tan(ai - b)) / (c / ai + d + 1) << " ";
+	}
 	system("pause");
 }
