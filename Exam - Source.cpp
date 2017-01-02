@@ -30,7 +30,7 @@ void main()
 
 		fld i
 		fadd _1
-		fstp ai
+		fstp i
 		loop start
 	}
 
