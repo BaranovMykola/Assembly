@@ -45,8 +45,18 @@ void main()
 		fsub b
 		fptan
 		fdivp st(1), st(0)
-		fstp w
+		fld c
+		fmul _2
+		faddp st(1), st(0)
+		//...
 
+		fld c
+		fdiv ai
+		fadd d
+		fadd _1
+		fdivp st(1), st(0)
+
+		fstp w
 
 		/*fld i
 		fadd _1
@@ -56,6 +66,6 @@ void main()
 
 	
 	cout << w << endl;
-	cout << tan(ai-b) /*/ (c / ai + d + 1)*/ << endl;
+	cout << (2*c+tan(ai-b)) / (c / ai + d + 1) << endl;
 	system("pause");
 }
