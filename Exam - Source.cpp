@@ -18,53 +18,44 @@ void main()
 	double w;
 
 
-	__asm
+	/*__asm
 	{
 		fld _1
 		fld b
 		fptan
 		fdivp st(1), st(0)
 		fstp w
-	}
-	cout << w << endl << tan(b) << endl << endl;
+	}*/
+	/*cout << w << endl << tan(b) << endl << endl;*/
 	
-	//__asm
-	//{
-	//	mov ecx, q
-	//		start:
-	//	fld b
-	//	fmul _3
-	//	fld c
-	//	fdiv _3
-	//	faddp st(1), st(0)
-	//	fmul i
-	//	fstp ai
+	__asm
+	{
+		mov ecx, q
+			start:
+		fld b
+		fmul _3
+		fld c
+		fdiv _3
+		faddp st(1), st(0)
+		fmul i
+		fstp ai
 
-	//	fld c
-	//	fmul _2 // 2c
-	//	fld ai
-	//			fld _1
-	//	fsub b // ai - b -> 1 -> 2c
-	//	fptan // tg -> 2c
-	//	faddp st(1), st(0)
-	//	fstp w
-	//	// ...
-	//	fld c
-	//	fdiv ai
-	//	fadd d
-	//	fadd _1
-	//	fdivp st(1), st(0)
+		fld _1
+		fld ai
+		fsub b
+		fptan
+		fdivp st(1), st(0)
+		fstp w
 
 
-
-	//	/*fld i
-	//	fadd _1
-	//	fstp i*/
-	//	//loop start
-	//}
+		/*fld i
+		fadd _1
+		fstp i*/
+		//loop start
+	}
 
 	
 	cout << w << endl;
-	cout << (2 * c + tan(ai - b)) /*/ (c / ai + d + 1)*/ << endl;
+	cout << tan(ai-b) /*/ (c / ai + d + 1)*/ << endl;
 	system("pause");
 }
